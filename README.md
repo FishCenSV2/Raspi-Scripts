@@ -3,7 +3,7 @@
 main.cpp is for footage capture on Raspberry Pi.
 - uses c++ code to call cmd commands to record picam footage (via libcamera commands) to a USB drive named "KINGSTON"
 - also logs console output (stdout and stderr) in file named "{date}-log.txt" and manages counters for capture sessions in file named "cam-log.txt"
-- also flashes indicator lights via GPIO (assuming GPIO15/Pin10 is Yellow and GPIO18/Pin12 is Red):
+- also flashes indicator lights via GPIO (assuming GPIO27/Pin13 is Yellow and GPIO17/Pin11 is Red):
   - Yellow ON = camera is recording
   - Yellow OFF AND Red ON = camera is NOT recording (probably camera wire connection issues)
   - Yellow ON AND Red ON = camera is recording, Red light just blinks every recorded block to show code isn't frozen
