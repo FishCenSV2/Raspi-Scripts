@@ -82,16 +82,16 @@ int main()
     }
 
     string gpioSetup = "";
-    gpioSetup += "echo \"15\" > /sys/class/gpio/export && "; //enable GPIO15 (YLW LED)
-    gpioSetup += "echo \"18\" > /sys/class/gpio/export && "; //enable GPIO18 (RED LED)
-    gpioSetup += "echo \"out\" > /sys/class/gpio/gpio15/direction && "; //set GPIO15 as output
-    gpioSetup += "echo \"out\" > /sys/class/gpio/gpio18/direction"; //set GPIO18 as output
+    gpioSetup += "echo \"27\" > /sys/class/gpio/export && "; //enable GPIO27 (YLW LED)
+    gpioSetup += "echo \"17\" > /sys/class/gpio/export && "; //enable GPIO17 (RED LED)
+    gpioSetup += "echo \"out\" > /sys/class/gpio/gpio27/direction && "; //set GPIO27 as output
+    gpioSetup += "echo \"out\" > /sys/class/gpio/gpio17/direction"; //set GPIO17 as output
     res = exec(gpioSetup.c_str());
 
-    const string YLW_ON = "echo \"1\" > /sys/class/gpio/gpio15/value";
-    const string YLW_OFF = "echo \"0\" > /sys/class/gpio/gpio15/value";
-    const string RED_ON = "echo \"1\" > /sys/class/gpio/gpio18/value";
-    const string RED_OFF = "echo \"0\" > /sys/class/gpio/gpio18/value";
+    const string YLW_ON = "echo \"1\" > /sys/class/gpio/gpio27/value";
+    const string YLW_OFF = "echo \"0\" > /sys/class/gpio/gpio27/value";
+    const string RED_ON = "echo \"1\" > /sys/class/gpio/gpio17/value";
+    const string RED_OFF = "echo \"0\" > /sys/class/gpio/gpio17/value";
 
     bool running, exitbutton = false, redstate = false;
 
@@ -165,10 +165,10 @@ int main()
     }
 
     gpioSetup = "";
-    gpioSetup += "echo \"0\" > /sys/class/gpio/gpio15/value && "; //turn off GPIO15
-    gpioSetup += "echo \"0\" > /sys/class/gpio/gpio18/value && "; //turn off GPIO18
-    gpioSetup += "echo \"15\" > /sys/class/gpio/unexport && "; //disable GPIO15
-    gpioSetup += "echo \"18\" > /sys/class/gpio/unexport"; //disable GPIO18
+    gpioSetup += "echo \"0\" > /sys/class/gpio/gpio27/value && "; //turn off GPIO27
+    gpioSetup += "echo \"0\" > /sys/class/gpio/gpio17/value && "; //turn off GPIO17
+    gpioSetup += "echo \"27\" > /sys/class/gpio/unexport && "; //disable GPIO27
+    gpioSetup += "echo \"17\" > /sys/class/gpio/unexport"; //disable GPIO17
     res = exec(gpioSetup.c_str());
 
 }
