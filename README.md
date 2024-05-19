@@ -28,7 +28,7 @@ Upon editing `/etc/rc.local`, run `sudo chmod +x /etc/rc.local` to have autorun 
 The stream.sh script uses rpicam along with gstreamer to stream video to the Nvidia Jetson TX2 over UDP. There are two things to note:
 - The framerate is 56 instead of 60 since the camera can only stream in sensor mode 2304:1296 at a max of 56 FPS. If the FPS is greater than this then the camera will use sensor mode 1532:864 instead which is automatically cropped and not native resolution.
 - The UDP address is the Jetson's address. The address is also hardcoded since the Pi and Jetson are connected to a router which has a DHCP reservation for their IPs.
-- The width and height are locked to 1920x1080. Any attempt to go higher will not work since the Pi is limited by its H.264 capabilities. You can use MJPG as the codec instead but this requires modifying the gstreamer flags.
+- The width and height are locked to 1920x1080. Any attempt to go higher will not work since the Pi is limited by its H.264 capabilities. You can instead use MJPEG as the codec but this requires modifying the gstreamer flags on both the Pi's side and Jetson's side.
   
 The stream.sh script can be executed from startup by following the same process as above with the footage.sh script
 
